@@ -1,0 +1,102 @@
+# NightLatch - NFC alarm clock
+# Author: https://github.com/Leproide
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# On every push to main / manual run:
+#   1. unit tests + lint (reports uploaded as artifacts)
+#   2. debug APK  -> artifact "NightLatch-debug"
+#   3. release APK signed with YOUR key, only if the signing secrets exist
+#      -> artifact "NightLatch-release" (installs as an update of the previous release)
+#
+# Signing secrets (Settings -> Secrets and variables -> Actions):
+#   NIGHTLATCH_KEYSTORE_B64   base64 of nightlatch.jks
+#   NIGHTLATCH_STORE_PASSWORD
+#   NIGHTLATCH_KEY_ALIAS
+#   NIGHTLATCH_KEY_PASSWORD
+name: build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Least privilege: the job only needs to read the repository.
+permissions:
+  contents: read
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      HAS_SIGNING_KEY: ${{ secrets.NIGHTLATCH_KEYSTORE_B64 != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      # Verifies the wrapper jar checksum against Gradle's published list and caches dependencies.
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Unit tests and lint
+        run: ./gradlew --no-daemon testDebugUnitTest lintDebug
+
+      - name: Upload test and lint reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            app/build/reports/tests/
+            app/build/reports/lint-results-debug.html
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Build debug APK
+        run: ./gradlew --no-daemon assembleDebug
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NightLatch-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
+
+      # Release: the keystore only exists on the runner for this job (runner.temp is wiped).
+      - name: Prepare signing key
+        if: env.HAS_SIGNING_KEY == 'true'
+        env:
+          KEYSTORE_B64: ${{ secrets.NIGHTLATCH_KEYSTORE_B64 }}
+          STORE_PASSWORD: ${{ secrets.NIGHTLATCH_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.NIGHTLATCH_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.NIGHTLATCH_KEY_PASSWORD }}
+        run: |
+          umask 077
+          echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/nightlatch.jks"
+          {
+            echo "storeFile=$RUNNER_TEMP/nightlatch.jks"
+            echo "storePassword=$STORE_PASSWORD"
+            echo "keyAlias=$KEY_ALIAS"
+            echo "keyPassword=$KEY_PASSWORD"
+          } > keystore.properties
+
+      - name: Build signed release APK
+        if: env.HAS_SIGNING_KEY == 'true'
+        run: ./gradlew --no-daemon assembleRelease
+
+      - name: Remove signing material
+        if: always()
+        run: rm -f keystore.properties "$RUNNER_TEMP/nightlatch.jks"
+
+      - uses: actions/upload-artifact@v4
+        if: env.HAS_SIGNING_KEY == 'true'
+        with:
+          name: NightLatch-release
+          path: app/build/outputs/apk/release/app-release.apk
+          if-no-files-found: error
+          retention-days: 30

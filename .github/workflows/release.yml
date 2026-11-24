@@ -1,0 +1,131 @@
+# NightLatch - NFC alarm clock
+# Author: https://github.com/Leproide
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# Pushing a tag vX.Y.Z publishes a GitHub Release with the APK signed with YOUR key.
+#
+#   1. bump versionCode / versionName in app/build.gradle.kts (tag must be v<versionName>)
+#   2. optional notes: fastlane/metadata/android/en-US/changelogs/<versionCode>.txt
+#   3. git tag -s vX.Y.Z && git push origin vX.Y.Z
+#
+# Needs the four signing secrets (Settings -> Secrets and variables -> Actions):
+#   NIGHTLATCH_KEYSTORE_B64, NIGHTLATCH_STORE_PASSWORD, NIGHTLATCH_KEY_ALIAS, NIGHTLATCH_KEY_PASSWORD
+# Without them the job fails: a release is never published with a debug or missing signature.
+name: release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+# Default to read-only; only the job that creates the release gets write access.
+permissions:
+  contents: read
+
+# Never run two releases of the same tag at once.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write # create the GitHub Release and upload the APK
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Check tag against versionName
+        id: ver
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          name=$(sed -nE 's/^[[:space:]]*versionName = "([^"]+)".*/\1/p' app/build.gradle.kts)
+          code=$(sed -nE 's/^[[:space:]]*versionCode = ([0-9]+).*/\1/p' app/build.gradle.kts)
+          if [ -z "$name" ] || [ -z "$code" ]; then echo "::error::versionName/versionCode not found"; exit 1; fi
+          if [ "$TAG" != "v$name" ]; then
+            echo "::error::tag $TAG does not match versionName $name (expected v$name)"; exit 1
+          fi
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      # Verifies the wrapper jar checksum against Gradle's published list.
+      # Release builds do not reuse a cache written by other runs (cache poisoning).
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: true
+
+      - name: Unit tests
+        run: ./gradlew --no-daemon testReleaseUnitTest
+
+      # The keystore only exists on the runner for this job (runner.temp is wiped).
+      - name: Prepare signing key
+        env:
+          KEYSTORE_B64: ${{ secrets.NIGHTLATCH_KEYSTORE_B64 }}
+          STORE_PASSWORD: ${{ secrets.NIGHTLATCH_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.NIGHTLATCH_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.NIGHTLATCH_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          if [ -z "$KEYSTORE_B64" ] || [ -z "$STORE_PASSWORD" ] || [ -z "$KEY_ALIAS" ] || [ -z "$KEY_PASSWORD" ]; then
+            echo "::error::signing secrets missing, refusing to publish an unsigned release"; exit 1
+          fi
+          umask 077
+          printf '%s' "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/nightlatch.jks"
+          {
+            echo "storeFile=$RUNNER_TEMP/nightlatch.jks"
+            echo "storePassword=$STORE_PASSWORD"
+            echo "keyAlias=$KEY_ALIAS"
+            echo "keyPassword=$KEY_PASSWORD"
+          } > keystore.properties
+
+      - name: Build signed release APK
+        run: ./gradlew --no-daemon assembleRelease
+
+      - name: Remove signing material
+        if: always()
+        run: rm -f keystore.properties "$RUNNER_TEMP/nightlatch.jks"
+
+      - name: Verify signature and rename
+        id: apk
+        env:
+          NAME: ${{ steps.ver.outputs.name }}
+        run: |
+          set -euo pipefail
+          apksigner=$(ls -d "$ANDROID_HOME"/build-tools/*/ | sort -V | tail -n1)apksigner
+          src=app/build/outputs/apk/release/app-release.apk
+          out="NightLatch-v$NAME.apk"
+          "$apksigner" verify --verbose --print-certs "$src" | tee signature.txt
+          # A debug-signed APK must never be published.
+          if grep -q "CN=Android Debug" signature.txt; then echo "::error::APK is debug-signed"; exit 1; fi
+          cp "$src" "$out"
+          sha256sum "$out" > "$out.sha256"
+          echo "file=$out" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+          CODE: ${{ steps.ver.outputs.code }}
+          FILE: ${{ steps.apk.outputs.file }}
+        run: |
+          set -euo pipefail
+          notes="fastlane/metadata/android/en-US/changelogs/$CODE.txt"
+          cert=$(grep -m1 "certificate SHA-256 digest" signature.txt | sed 's/.*digest: //')
+          {
+            if [ -f "$notes" ]; then cat "$notes"; echo; fi
+            echo "Signing certificate SHA-256: \`$cert\`"
+          } > release-notes.md
+          gh release create "$TAG" "$FILE" "$FILE.sha256" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "NightLatch $TAG" \
+            --notes-file release-notes.md \
+            --verify-tag

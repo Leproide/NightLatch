@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  NightLatch - NFC alarm clock
+  Author: https://github.com/Leproide
+  SPDX-License-Identifier: GPL-3.0-or-later
+
+  Guardian: only window-state events, no window content access.
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeWindowStateChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagDefault"
+    android:canRetrieveWindowContent="false"
+    android:description="@string/guardian_description"
+    android:notificationTimeout="100" />

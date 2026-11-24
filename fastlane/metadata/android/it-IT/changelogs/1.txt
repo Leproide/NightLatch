@@ -1,0 +1,5 @@
+Prima versione.
+• Sveglie che spegni avvicinando i tuoi tag NFC: qualsiasi tag abbinato o un tag specifico per sveglia.
+• Sblocco matematico configurabile come riserva (facile / normale / difficile, operazioni a scelta).
+• Volume crescente, controllo "sei sveglio?", backup e Guardian anti-fuga facoltativi.
+• Italiano e inglese.

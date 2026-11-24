@@ -1,0 +1,38 @@
+# NightLatch - NFC alarm clock
+# Author: https://github.com/Leproide
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# Gradle / build output
+.gradle/
+build/
+app/build/
+.kotlin/
+captures/
+*.apk
+*.aab
+*.ap_
+output-metadata.json
+
+# Local SDK path and IDE
+local.properties
+.idea/
+*.iml
+.DS_Store
+
+# Signing secrets: never commit (also any base64 export of the keystore)
+keystore.properties
+*.jks
+*.keystore
+*.p12
+*.b64
+
+# Temporary update drop folder
+_update/
+
+# Logs and heap dumps
+*.log
+*.hprof
+.vscode/
+
+# Raw screen captures and recordings used to make the README screenshots/GIFs
+docs/screenshots/raw/

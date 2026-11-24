@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  NightLatch - NFC alarm clock
+  Author: https://github.com/Leproide
+  SPDX-License-Identifier: GPL-3.0-or-later
+  Default language: English. Italian is in values-it.
+-->
+<resources>
+    <string name="app_name" translatable="false">NightLatch</string>
+
+    <string name="tab_alarms">ALARMS</string>
+    <string name="tab_tags">TAGS</string>
+    <string name="tab_config">CONFIG</string>
+
+    <!-- Alarms -->
+    <string name="next_alarm">NEXT RUN IN %1$s</string>
+    <string name="no_alarm">NO ALARM ARMED</string>
+    <string name="alarms_empty">No alarms. Jack in and set one.</string>
+    <string name="add_alarm">NEW</string>
+    <string name="edit_alarm">EDIT ALARM</string>
+    <string name="save">SAVE</string>
+    <string name="cancel">CANCEL</string>
+    <string name="delete">DELETE</string>
+    <string name="label_hint">Label (optional)</string>
+    <string name="repeat_once">ONCE</string>
+    <string name="repeat_daily">EVERY DAY</string>
+    <string name="repeat_once_hint">No day selected: rings once.</string>
+    <string name="day_mon">MON</string>
+    <string name="day_tue">TUE</string>
+    <string name="day_wed">WED</string>
+    <string name="day_thu">THU</string>
+    <string name="day_fri">FRI</string>
+    <string name="day_sat">SAT</string>
+    <string name="day_sun">SUN</string>
+    <string name="schedule_failed">Could not arm the alarm: check the exact alarm permission in CONFIG.</string>
+    <string name="alarm_limit">Alarm limit reached (%1$d).</string>
+
+    <!-- Tags -->
+    <string name="tags_title">Paired tags</string>
+    <string name="scan_tag">PAIR NEW TAG</string>
+    <string name="scanning">Hold a tag against the back of the phone…</string>
+    <string name="stop">STOP</string>
+    <string name="tag_added">Tag %1$s paired.</string>
+    <string name="tag_already">This tag is already paired.</string>
+    <string name="tag_limit">Tag limit reached (%1$d).</string>
+    <string name="tag_invalid">Unreadable tag UID.</string>
+    <string name="tag_random">This tag uses a random UID (bank card, phone): it changes at every read and can\'t be paired.</string>
+    <string name="rename">RENAME</string>
+    <string name="tag_name_hint">Tag name</string>
+    <string name="remove_tag_confirm">Remove tag “%1$s”?</string>
+    <string name="nfc_off">NFC is turned off.</string>
+    <string name="open_nfc_settings">NFC SETTINGS</string>
+
+    <!-- Config -->
+    <string name="cfg_difficulty">DIFFICULTY</string>
+    <string name="diff_easy">EASY</string>
+    <string name="diff_normal">NORMAL</string>
+    <string name="diff_hard">HARD</string>
+    <string name="cfg_ops">OPERATIONS</string>
+    <string name="cfg_preview">PREVIEW</string>
+    <string name="cfg_sound">Sound</string>
+    <string name="pick_ringtone">CHOOSE RINGTONE</string>
+    <string name="ringtone_default">System alarm sound</string>
+    <string name="cfg_vibrate">Vibrate</string>
+    <string name="cfg_ring_glitch">Glitch effect on the ringing screen</string>
+    <string name="cfg_lock_volume">Lock alarm volume at maximum</string>
+    <string name="cfg_system">System status</string>
+    <string name="perm_notifications">Notifications</string>
+    <string name="perm_fullscreen">Full-screen alarm</string>
+    <string name="perm_exact">Exact alarms</string>
+    <string name="status_ok">OK</string>
+    <string name="status_fix">FIX</string>
+    <string name="cfg_guardian">Guardian</string>
+    <string name="cfg_guardian_text">While an alarm rings, Guardian blocks Settings (force stop, uninstall), the notification shade and the power menu, and sends you back to the alarm. Calls and emergency calls are never blocked. It does nothing when no alarm rings.</string>
+    <string name="cfg_guardian_restricted">App installed outside the Play Store, Android 13+: if the switch is greyed out, try to turn it on once, then open App info → ⋮ → Allow restricted settings and come back.</string>
+    <string name="setup_restricted_title">Restricted settings</string>
+    <string name="setup_restricted_desc">NightLatch is installed outside the Play Store, so Android blocks some settings until you unlock them by hand: Guardian (accessibility) and, from Android 15, Display over other apps.\nIf a switch is greyed out or Android says “Restricted setting”:\n1. Try to turn it on once: Android shows the block and unlocks the option below.\n2. Tap OPEN APP INFO, then ⋮ (top right) → Allow restricted settings, and confirm with your PIN or fingerprint.\n3. Come back here and turn it on.</string>
+    <string name="setup_open_app_info">OPEN APP INFO</string>
+    <string name="cfg_footer">No account, no network, no tracking. GPL-3.0 · github.com/Leproide</string>
+
+    <!-- Ringing -->
+    <string name="ring_title">WAKE UP</string>
+    <string name="ring_scan">TAP A PAIRED TAG</string>
+    <string name="ring_unknown_tag">UNKNOWN TAG // ACCESS DENIED</string>
+    <string name="ring_back_to_tag">BACK TO NFC</string>
+    <string name="math_answer_hint">Answer</string>
+    <string name="submit">ENTER</string>
+
+    <!-- Notifications -->
+    <string name="channel_ringing">Ringing alarm</string>
+    <string name="channel_info">Information</string>
+    <string name="notif_ringing_title">NightLatch</string>
+    <string name="notif_ringing_text">Alarm ringing: tap your tag</string>
+
+    <!-- Accessibility -->
+    <string name="guardian_label">NightLatch Guardian</string>
+    <string name="guardian_description">Active only while a NightLatch alarm is ringing: brings you back to the alarm if you try to leave it (Settings, force stop, uninstall, notification shade, power menu). Phone and emergency calls are always allowed. It reads only the name of the app in the foreground, never screen content.</string>
+
+    <!-- Setup wizard -->
+    <string name="setup_title">SETUP</string>
+    <string name="setup_intro">A few permissions are needed so the alarm rings on time, over the lock screen, and can be dismissed with your tags. Tap each FIX button, then come back here.</string>
+    <string name="setup_required">Required</string>
+    <string name="setup_recommended">Recommended</string>
+    <string name="setup_notif_desc">Shows the alarm while it is ringing.</string>
+    <string name="setup_fullscreen_desc">Opens the alarm screen over the lock screen.</string>
+    <string name="setup_exact_desc">Makes the alarm ring at the exact time.</string>
+    <string name="setup_nfc">NFC on</string>
+    <string name="setup_nfc_desc">Needed to dismiss the alarm with your tags.</string>
+    <string name="setup_guardian_desc">Optional: stops you from closing the app or opening Settings while the alarm rings.</string>
+    <string name="setup_done">START</string>
+    <string name="setup_skip">CONTINUE ANYWAY</string>
+    <string name="setup_skip_hint">Without the required permissions the alarm may not ring or may not show up. You can fix them later in CONFIG.</string>
+    <string name="perm_missing_title">Missing permission</string>
+    <string name="perm_missing_text">%1$s: tap to turn it back on. Android removed it (it can happen after an update).</string>
+
+    <!-- Extras, per-alarm tag, wake check, backup -->
+    <string name="perm_battery">Unrestricted battery</string>
+    <string name="setup_battery_desc">Stops the phone maker\'s battery saver (Samsung, Xiaomi, Huawei…) from killing the alarm.</string>
+    <string name="alarm_tag">TAG THAT STOPS IT</string>
+    <string name="alarm_tag_any">Any paired tag</string>
+    <string name="ring_scan_named">TAP TAG: %1$s</string>
+    <string name="check_title">ARE YOU AWAKE?</string>
+    <string name="check_text">Tap the button before the countdown ends, or the alarm rings again.</string>
+    <string name="check_confirm">I AM AWAKE</string>
+    <string name="notif_check_text">Are you awake? Confirm or it rings again</string>
+    <string name="cfg_extras">Extras</string>
+    <string name="cfg_ramp">Rising volume</string>
+    <string name="cfg_ramp_desc">Starts very low and rises steadily to full volume in the time you pick (15, 30 or 60 seconds).</string>
+    <string name="cfg_wake_check">Are-you-awake check</string>
+    <string name="cfg_wake_check_desc">Some minutes after you stop the alarm it asks for confirmation: if you don\'t answer within 60 seconds, it rings again.</string>
+    <string name="cfg_backup">Backup</string>
+    <string name="cfg_backup_desc">Saves alarms, paired tags and settings to a file you choose, or restores them (e.g. on a new phone).</string>
+    <string name="cfg_export">EXPORT</string>
+    <string name="cfg_import">IMPORT</string>
+    <string name="backup_exported">Backup saved.</string>
+    <string name="backup_failed">Could not write the file.</string>
+    <string name="backup_imported">Backup restored.</string>
+    <string name="backup_invalid">Not a valid NightLatch backup: nothing changed.</string>
+
+    <!-- Unlock wording (cosmetic option): w_<theme>_<field> -->
+    <string name="w_math_section">Math unlock</string>
+    <string name="w_math_toggle">Also dismiss with math</string>
+    <string name="w_math_count">Exercises to solve: %1$d</string>
+    <string name="w_math_forced">No tag paired: math is always available.</string>
+    <string name="w_math_ring">MATH UNLOCK</string>
+    <string name="w_math_progress">EXERCISE %1$d / %2$d</string>
+    <string name="w_math_wrong">WRONG // NEW EXERCISE</string>
+    <string name="w_math_tags_empty">No tags paired: the alarm can only be dismissed with math.</string>
+    <string name="w_math_nfc_missing">No NFC on this device: alarms are dismissed with math.</string>
+    <string name="w_cipher_section">Backup decryption</string>
+    <string name="w_cipher_toggle">Also dismiss by decrypting codes</string>
+    <string name="w_cipher_count">Codes to decrypt: %1$d</string>
+    <string name="w_cipher_forced">No tag paired: decryption is always available.</string>
+    <string name="w_cipher_ring">DECRYPT THE CODE</string>
+    <string name="w_cipher_progress">CODE %1$d / %2$d</string>
+    <string name="w_cipher_wrong">WRONG CODE // NEW CODE</string>
+    <string name="w_cipher_tags_empty">No tags paired: the alarm can only be dismissed by decrypting codes.</string>
+    <string name="w_cipher_nfc_missing">No NFC on this device: alarms are dismissed by decrypting codes.</string>
+    <string name="w_override_section">Numeric override</string>
+    <string name="w_override_toggle">Allow the numeric override</string>
+    <string name="w_override_count">Sequences to solve: %1$d</string>
+    <string name="w_override_forced">No tag paired: the override is always available.</string>
+    <string name="w_override_ring">NUMERIC OVERRIDE</string>
+    <string name="w_override_progress">SEQUENCE %1$d / %2$d</string>
+    <string name="w_override_wrong">WRONG SEQUENCE // NEW SEQUENCE</string>
+    <string name="w_override_tags_empty">No tags paired: the alarm can only be dismissed with the numeric override.</string>
+    <string name="w_override_nfc_missing">No NFC on this device: alarms are dismissed with the numeric override.</string>
+    <string name="w_operations_section">Backup operations</string>
+    <string name="w_operations_toggle">Also dismiss by solving operations</string>
+    <string name="w_operations_count">Operations to solve: %1$d</string>
+    <string name="w_operations_forced">No tag paired: operations are always available.</string>
+    <string name="w_operations_ring">SOLVE THE OPERATIONS</string>
+    <string name="w_operations_progress">%1$d / %2$d</string>
+    <string name="w_operations_wrong">WRONG // NEW OPERATION</string>
+    <string name="w_operations_tags_empty">No tags paired: the alarm can only be dismissed by solving operations.</string>
+    <string name="w_operations_nfc_missing">No NFC on this device: alarms are dismissed by solving operations.</string>
+    <string name="cfg_cosmetic">Cosmetic options</string>
+    <string name="cfg_wording">UNLOCK NAME</string>
+    <string name="w_name_math">Math</string>
+    <string name="w_name_cipher">Cipher code</string>
+    <string name="w_name_override">Numeric override</string>
+    <string name="w_name_operations">Operations</string>
+    <string name="perm_overlay">Display over other apps</string>
+    <string name="setup_overlay_desc">Lets the alarm screen open over the lock screen even if Android blocks the full-screen alarm (it can happen after an update).</string>
+    <string name="ring_locked_title">PHONE LOCKED</string>
+    <string name="ring_locked_text">Unlock (fingerprint, face or tap here for PIN), then tap your tag.</string>
+</resources>

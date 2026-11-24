@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  NightLatch - NFC alarm clock
+  Author: https://github.com/Leproide
+  SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<resources>
+    <string name="tab_alarms">SVEGLIE</string>
+    <string name="tab_tags">TAG</string>
+    <string name="tab_config">CONFIG</string>
+
+    <string name="next_alarm">PROSSIMA TRA %1$s</string>
+    <string name="no_alarm">NESSUNA SVEGLIA ARMATA</string>
+    <string name="alarms_empty">Nessuna sveglia. Collegati e impostane una.</string>
+    <string name="add_alarm">NUOVA</string>
+    <string name="edit_alarm">MODIFICA SVEGLIA</string>
+    <string name="save">SALVA</string>
+    <string name="cancel">ANNULLA</string>
+    <string name="delete">ELIMINA</string>
+    <string name="label_hint">Etichetta (facoltativa)</string>
+    <string name="repeat_once">UNA VOLTA</string>
+    <string name="repeat_daily">OGNI GIORNO</string>
+    <string name="repeat_once_hint">Nessun giorno selezionato: suona una volta sola.</string>
+    <string name="day_mon">LUN</string>
+    <string name="day_tue">MAR</string>
+    <string name="day_wed">MER</string>
+    <string name="day_thu">GIO</string>
+    <string name="day_fri">VEN</string>
+    <string name="day_sat">SAB</string>
+    <string name="day_sun">DOM</string>
+    <string name="schedule_failed">Impossibile armare la sveglia: controlla il permesso sveglie esatte in CONFIG.</string>
+    <string name="alarm_limit">Limite di sveglie raggiunto (%1$d).</string>
+
+    <string name="tags_title">Tag abbinati</string>
+    <string name="scan_tag">ABBINA NUOVO TAG</string>
+    <string name="scanning">Appoggia un tag sul retro del telefono…</string>
+    <string name="stop">STOP</string>
+    <string name="tag_added">Tag %1$s abbinato.</string>
+    <string name="tag_already">Questo tag è già abbinato.</string>
+    <string name="tag_limit">Limite di tag raggiunto (%1$d).</string>
+    <string name="tag_invalid">UID del tag non leggibile.</string>
+    <string name="tag_random">Questo tag usa un UID casuale (carta bancaria, telefono): cambia a ogni lettura e non si può abbinare.</string>
+    <string name="rename">RINOMINA</string>
+    <string name="tag_name_hint">Nome del tag</string>
+    <string name="remove_tag_confirm">Rimuovere il tag “%1$s”?</string>
+    <string name="nfc_off">L\'NFC è disattivato.</string>
+    <string name="open_nfc_settings">IMPOSTAZIONI NFC</string>
+
+    <string name="cfg_difficulty">DIFFICOLTÀ</string>
+    <string name="diff_easy">FACILE</string>
+    <string name="diff_normal">NORMALE</string>
+    <string name="diff_hard">DIFFICILE</string>
+    <string name="cfg_ops">OPERAZIONI</string>
+    <string name="cfg_preview">ANTEPRIMA</string>
+    <string name="cfg_sound">Suono</string>
+    <string name="pick_ringtone">SCEGLI SUONERIA</string>
+    <string name="ringtone_default">Suono sveglia di sistema</string>
+    <string name="cfg_vibrate">Vibrazione</string>
+    <string name="cfg_ring_glitch">Effetto glitch sulla sveglia</string>
+    <string name="cfg_lock_volume">Blocca il volume sveglia al massimo</string>
+    <string name="cfg_system">Stato del sistema</string>
+    <string name="perm_notifications">Notifiche</string>
+    <string name="perm_fullscreen">Sveglia a schermo intero</string>
+    <string name="perm_exact">Sveglie esatte</string>
+    <string name="status_ok">OK</string>
+    <string name="status_fix">SISTEMA</string>
+    <string name="cfg_guardian">Guardian</string>
+    <string name="cfg_guardian_text">Mentre una sveglia suona, Guardian blocca Impostazioni (arresto forzato, disinstallazione), la tendina delle notifiche e il menu di accensione, e ti riporta alla sveglia. Chiamate e chiamate di emergenza non vengono mai bloccate. Quando non suona nulla non fa niente.</string>
+    <string name="cfg_guardian_restricted">App installata fuori dal Play Store, Android 13+: se l\'interruttore è grigio, prova una volta ad attivarlo, poi apri Info app → ⋮ → Consenti impostazioni con restrizioni e torna qui.</string>
+    <string name="setup_restricted_title">Impostazioni con restrizioni</string>
+    <string name="setup_restricted_desc">NightLatch è installata fuori dal Play Store, quindi Android blocca alcune impostazioni finché non le sblocchi a mano: Guardian (accessibilità) e, da Android 15, Mostra sopra le altre app.\nSe un interruttore è grigio o Android dice “Impostazione con restrizioni”:\n1. Prova una volta ad attivarlo: Android mostra il blocco e sblocca l\'opzione qui sotto.\n2. Tocca APRI INFO APP, poi ⋮ (in alto a destra) → Consenti impostazioni con restrizioni, e conferma con PIN o impronta.\n3. Torna qui e attivalo.</string>
+    <string name="setup_open_app_info">APRI INFO APP</string>
+    <string name="cfg_footer">Nessun account, nessuna rete, nessun tracciamento. GPL-3.0 · github.com/Leproide</string>
+
+    <string name="ring_title">SVEGLIA</string>
+    <string name="ring_scan">AVVICINA UN TAG ABBINATO</string>
+    <string name="ring_unknown_tag">TAG SCONOSCIUTO // ACCESSO NEGATO</string>
+    <string name="ring_back_to_tag">TORNA ALL\'NFC</string>
+    <string name="math_answer_hint">Risposta</string>
+    <string name="submit">INVIO</string>
+
+    <string name="channel_ringing">Sveglia che suona</string>
+    <string name="channel_info">Informazioni</string>
+    <string name="notif_ringing_title">NightLatch</string>
+    <string name="notif_ringing_text">Sveglia in corso: avvicina il tuo tag</string>
+
+    <string name="guardian_label">NightLatch Guardian</string>
+    <string name="guardian_description">Attivo solo mentre suona una sveglia NightLatch: ti riporta alla sveglia se provi a uscirne (Impostazioni, arresto forzato, disinstallazione, tendina notifiche, menu di accensione). Telefono e chiamate di emergenza sono sempre permessi. Legge solo il nome dell\'app in primo piano, mai il contenuto dello schermo.</string>
+
+    <!-- Setup wizard -->
+    <string name="setup_title">CONFIGURAZIONE INIZIALE</string>
+    <string name="setup_intro">Servono alcuni permessi perché la sveglia suoni all\'orario giusto, compaia sopra la schermata di blocco e si spenga con i tuoi tag. Tocca ogni pulsante SISTEMA e poi torna qui.</string>
+    <string name="setup_required">Necessari</string>
+    <string name="setup_recommended">Consigliati</string>
+    <string name="setup_notif_desc">Mostra la sveglia mentre suona.</string>
+    <string name="setup_fullscreen_desc">Apre la schermata della sveglia sopra la schermata di blocco.</string>
+    <string name="setup_exact_desc">Fa suonare la sveglia all\'orario esatto.</string>
+    <string name="setup_nfc">NFC attivo</string>
+    <string name="setup_nfc_desc">Serve per spegnere la sveglia con i tag.</string>
+    <string name="setup_guardian_desc">Facoltativo: impedisce di chiudere l\'app o aprire Impostazioni mentre la sveglia suona.</string>
+    <string name="setup_done">AVVIA</string>
+    <string name="setup_skip">CONTINUA COMUNQUE</string>
+    <string name="setup_skip_hint">Senza i permessi necessari la sveglia potrebbe non suonare o non comparire. Puoi sistemarli dopo in CONFIG.</string>
+    <string name="perm_missing_title">Permesso mancante</string>
+    <string name="perm_missing_text">%1$s: tocca per riattivarlo. Android l\'ha tolto (può succedere dopo un aggiornamento).</string>
+
+    <!-- Extras, per-alarm tag, wake check, backup -->
+    <string name="perm_battery">Batteria senza restrizioni</string>
+    <string name="setup_battery_desc">Evita che il risparmio batteria del produttore (Samsung, Xiaomi, Huawei…) chiuda la sveglia.</string>
+    <string name="alarm_tag">TAG CHE LA SPEGNE</string>
+    <string name="alarm_tag_any">Qualsiasi tag abbinato</string>
+    <string name="ring_scan_named">AVVICINA IL TAG: %1$s</string>
+    <string name="check_title">SEI SVEGLIO?</string>
+    <string name="check_text">Tocca il pulsante prima che finisca il conto alla rovescia, altrimenti la sveglia suona di nuovo.</string>
+    <string name="check_confirm">SONO SVEGLIO</string>
+    <string name="notif_check_text">Sei sveglio? Conferma o suona di nuovo</string>
+    <string name="cfg_extras">Extra</string>
+    <string name="cfg_ramp">Volume crescente</string>
+    <string name="cfg_ramp_desc">Parte molto basso e sale in modo regolare fino al massimo nel tempo che scegli (15, 30 o 60 secondi).</string>
+    <string name="cfg_wake_check">Controllo “sei sveglio?”</string>
+    <string name="cfg_wake_check_desc">Qualche minuto dopo che hai spento la sveglia chiede una conferma: se non rispondi entro 60 secondi, suona di nuovo.</string>
+    <string name="cfg_backup">Backup</string>
+    <string name="cfg_backup_desc">Salva sveglie, tag abbinati e impostazioni in un file a tua scelta, o li ripristina (per esempio su un telefono nuovo).</string>
+    <string name="cfg_export">ESPORTA</string>
+    <string name="cfg_import">IMPORTA</string>
+    <string name="backup_exported">Backup salvato.</string>
+    <string name="backup_failed">Impossibile scrivere il file.</string>
+    <string name="backup_imported">Backup ripristinato.</string>
+    <string name="backup_invalid">Non è un backup NightLatch valido: non ho cambiato nulla.</string>
+
+    <!-- Unlock wording (cosmetic option): w_<theme>_<field> -->
+    <string name="w_math_section">Sblocco matematico</string>
+    <string name="w_math_toggle">Spegni anche con la matematica</string>
+    <string name="w_math_count">Esercizi da risolvere: %1$d</string>
+    <string name="w_math_forced">Nessun tag abbinato: la matematica è sempre disponibile.</string>
+    <string name="w_math_ring">SBLOCCO MATEMATICO</string>
+    <string name="w_math_progress">ESERCIZIO %1$d / %2$d</string>
+    <string name="w_math_wrong">SBAGLIATO // NUOVO ESERCIZIO</string>
+    <string name="w_math_tags_empty">Nessun tag abbinato: la sveglia si spegne solo con la matematica.</string>
+    <string name="w_math_nfc_missing">Questo dispositivo non ha NFC: le sveglie si spengono con la matematica.</string>
+    <string name="w_cipher_section">Decrittazione di riserva</string>
+    <string name="w_cipher_toggle">Spegni anche decrittando i codici</string>
+    <string name="w_cipher_count">Codici da decrittare: %1$d</string>
+    <string name="w_cipher_forced">Nessun tag abbinato: la decrittazione è sempre disponibile.</string>
+    <string name="w_cipher_ring">DECRITTA IL CODICE</string>
+    <string name="w_cipher_progress">CODICE %1$d / %2$d</string>
+    <string name="w_cipher_wrong">CODICE ERRATO // NUOVO CODICE</string>
+    <string name="w_cipher_tags_empty">Nessun tag abbinato: la sveglia si spegne solo decrittando i codici.</string>
+    <string name="w_cipher_nfc_missing">Questo dispositivo non ha NFC: le sveglie si spengono decrittando i codici.</string>
+    <string name="w_override_section">Override numerico</string>
+    <string name="w_override_toggle">Consenti l\'override numerico</string>
+    <string name="w_override_count">Sequenze da risolvere: %1$d</string>
+    <string name="w_override_forced">Nessun tag abbinato: l\'override è sempre disponibile.</string>
+    <string name="w_override_ring">OVERRIDE NUMERICO</string>
+    <string name="w_override_progress">SEQUENZA %1$d / %2$d</string>
+    <string name="w_override_wrong">SEQUENZA ERRATA // NUOVA SEQUENZA</string>
+    <string name="w_override_tags_empty">Nessun tag abbinato: la sveglia si spegne solo con l\'override numerico.</string>
+    <string name="w_override_nfc_missing">Questo dispositivo non ha NFC: le sveglie si spengono con l\'override numerico.</string>
+    <string name="w_operations_section">Operazioni di riserva</string>
+    <string name="w_operations_toggle">Spegni anche risolvendo operazioni</string>
+    <string name="w_operations_count">Operazioni da risolvere: %1$d</string>
+    <string name="w_operations_forced">Nessun tag abbinato: le operazioni sono sempre disponibili.</string>
+    <string name="w_operations_ring">RISOLVI LE OPERAZIONI</string>
+    <string name="w_operations_progress">%1$d / %2$d</string>
+    <string name="w_operations_wrong">SBAGLIATO // NUOVA OPERAZIONE</string>
+    <string name="w_operations_tags_empty">Nessun tag abbinato: la sveglia si spegne solo risolvendo operazioni.</string>
+    <string name="w_operations_nfc_missing">Questo dispositivo non ha NFC: le sveglie si spengono risolvendo operazioni.</string>
+    <string name="cfg_cosmetic">Opzioni cosmetiche</string>
+    <string name="cfg_wording">NOME DELLO SBLOCCO</string>
+    <string name="w_name_math">Matematica</string>
+    <string name="w_name_cipher">Codice cifrato</string>
+    <string name="w_name_override">Override numerico</string>
+    <string name="w_name_operations">Operazioni</string>
+    <string name="perm_overlay">Mostra sopra le altre app</string>
+    <string name="setup_overlay_desc">Permette alla sveglia di aprirsi sopra la schermata di blocco anche se Android blocca la sveglia a schermo intero (può succedere dopo un aggiornamento).</string>
+    <string name="ring_locked_title">TELEFONO BLOCCATO</string>
+    <string name="ring_locked_text">Sblocca (impronta, volto o tocca qui per il PIN), poi avvicina il tag.</string>
+</resources>

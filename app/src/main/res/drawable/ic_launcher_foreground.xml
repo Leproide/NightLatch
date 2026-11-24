@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  NightLatch - NFC alarm clock
+  Author: https://github.com/Leproide
+  SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<!-- Neon padlock with an NFC wave: magenta shackle, cyan body. 108dp adaptive canvas. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:strokeColor="#FFFF2BD6" android:strokeWidth="5" android:fillColor="#00000000"
+        android:pathData="M42,50 L42,40 A12,12 0 0 1 66,40 L66,50" />
+    <path android:strokeColor="#FF00F0FF" android:strokeWidth="4" android:fillColor="#3300F0FF"
+        android:pathData="M36,50 L76,50 L76,70 L70,76 L32,76 L32,54 Z" />
+    <path android:strokeColor="#FFF5FF3B" android:strokeWidth="3" android:fillColor="#00000000"
+        android:pathData="M48,58 A6,6 0 0 1 48,68 M53,55 A10,10 0 0 1 53,71 M58,52 A14,14 0 0 1 58,74" />
+</vector>

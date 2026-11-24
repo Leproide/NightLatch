@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  NightLatch - NFC alarm clock
+  Copyright (C) 2026 Leproide
+  Author: https://github.com/Leproide
+  SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- NFC is used but not required: without it the math fallback is always active. -->
+    <uses-feature android:name="android.hardware.nfc" android:required="false" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <!-- Exact alarms: USE_EXACT_ALARM (API 33+, auto-granted to alarm clock apps),
+         SCHEDULE_EXACT_ALARM only for API 31-32 where USE_EXACT_ALARM does not exist. -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        android:maxSdkVersion="32" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <!-- "Display over other apps": exempts the app from background-activity-start limits, so the
+         ring service can open the alarm screen over the lock screen even when the full-screen
+         intent is not delivered (e.g. its permission was revoked by an update). -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- systemExempted is allowed for apps holding USE_EXACT_ALARM / SCHEDULE_EXACT_ALARM. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Lets the app show the system "allow unrestricted battery" dialog (recommended setup step). -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!-- No INTERNET permission: the app never talks to the network. -->
+
+    <application
+        android:name=".NightLatchApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NightLatch"
+        tools:targetApi="36">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Ringing screen: shown over the lock screen, never exported. -->
+        <activity
+            android:name=".ui.AlarmActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:showWhenLocked="true"
+            android:taskAffinity=""
+            android:turnScreenOn="true" />
+
+        <service
+            android:name=".alarm.RingService"
+            android:exported="false"
+            android:foregroundServiceType="systemExempted" />
+
+        <!-- Guardian: optional anti-escape service, enabled by the user in Accessibility settings.
+             Protected by BIND_ACCESSIBILITY_SERVICE so only the system can bind it. -->
+        <service
+            android:name=".alarm.GuardianService"
+            android:exported="false"
+            android:label="@string/guardian_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/guardian_config" />
+        </service>
+
+        <!-- Fired only through our own immutable PendingIntent. -->
+        <receiver
+            android:name=".alarm.AlarmReceiver"
+            android:exported="false" />
+
+        <!-- System broadcasts that require rescheduling. Exported because the system
+             sends them; the receiver only reacts to the actions listed here. -->
+        <receiver
+            android:name=".alarm.SystemEventsReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

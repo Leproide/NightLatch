@@ -1,0 +1,5 @@
+First release.
+• Alarms you stop by tapping your own NFC tags: any paired tag or one specific tag per alarm.
+• Configurable math unlock as a fallback (easy / normal / hard, choice of operations).
+• Optional rising volume, "are you awake?" check, backup and Guardian anti-escape.
+• English and Italian.

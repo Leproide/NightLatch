@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  NightLatch - NFC alarm clock
+  Author: https://github.com/Leproide
+  SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<resources>
+    <color name="void_black">#FF07060D</color>
+    <color name="ic_launcher_background">#FF07060D</color>
+    <style name="Theme.NightLatch" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/void_black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>
