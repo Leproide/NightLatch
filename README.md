@@ -12,25 +12,29 @@ Italian documentation: [README-ITALIAN.md](README-ITALIAN.md)
 
 ## Screenshots
 
-<p>
-  <a href="docs/screenshots/01-alarms.png"><img src="docs/screenshots/01-alarms.png" width="200" alt="Alarm list"></a>
-  <a href="docs/screenshots/02-alarm-edit.png"><img src="docs/screenshots/02-alarm-edit.png" width="200" alt="Alarm editor"></a>
-  <a href="docs/screenshots/03-swipe-delete.png"><img src="docs/screenshots/03-swipe-delete.png" width="200" alt="Swipe left to delete"></a>
-  <a href="docs/screenshots/04-tags.png"><img src="docs/screenshots/04-tags.png" width="200" alt="Paired NFC tags"></a>
-</p>
-<p>
-  <a href="docs/screenshots/06-ringing.png"><img src="docs/screenshots/06-ringing.png" width="200" alt="Ringing screen with glitch effect"></a>
-  <a href="docs/screenshots/07-math-unlock.png"><img src="docs/screenshots/07-math-unlock.png" width="200" alt="Math unlock"></a>
-  <a href="docs/screenshots/08-wake-check.png"><img src="docs/screenshots/08-wake-check.png" width="200" alt="Are-you-awake check"></a>
-  <a href="docs/screenshots/05-config.png"><img src="docs/screenshots/05-config.png" width="200" alt="CONFIG page (long image)"></a>
-</p>
+<sub>Tap an image to enlarge it.</sub>
 
-Glitch effect while ringing, and swipe-to-delete:
+<table align="center">
+  <tr>
+    <td align="center" width="25%"><a href="docs/screenshots/01-alarms.png"><img src="docs/screenshots/01-alarms.png" width="180" alt="Alarms"></a><br><sub>Alarms</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/02-alarm-edit.png"><img src="docs/screenshots/02-alarm-edit.png" width="180" alt="Alarm editor"></a><br><sub>Alarm editor</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/04-tags.png"><img src="docs/screenshots/04-tags.png" width="180" alt="Paired NFC tags"></a><br><sub>Paired NFC tags</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/05-config.png"><img src="docs/screenshots/05-config-preview.png" width="180" alt="Settings"></a><br><sub>Settings</sub></td>
+  </tr>
+  <tr>
+    <td align="center" width="25%"><a href="docs/screenshots/06-ringing.png"><img src="docs/screenshots/06-ringing.png" width="180" alt="Ringing"></a><br><sub>Ringing</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/07-math-unlock.png"><img src="docs/screenshots/07-math-unlock.png" width="180" alt="Math unlock"></a><br><sub>Math unlock</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/08-wake-check.png"><img src="docs/screenshots/08-wake-check.png" width="180" alt="Are you awake?"></a><br><sub>Are you awake?</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/03-swipe-delete.png"><img src="docs/screenshots/03-swipe-delete.png" width="180" alt="Swipe to delete"></a><br><sub>Swipe to delete</sub></td>
+  </tr>
+</table>
 
-<p>
-  <img src="docs/screenshots/ringing-glitch.gif" width="240" alt="Ringing screen glitch animation">
-  <img src="docs/screenshots/swipe-delete.gif" width="240" alt="Swipe-to-delete animation">
-</p>
+<table align="center">
+  <tr>
+    <td align="center" width="50%"><img src="docs/screenshots/ringing-glitch.gif" width="260" alt="Glitch effect while ringing"><br><sub>Glitch effect while ringing</sub></td>
+    <td align="center" width="50%"><img src="docs/screenshots/swipe-delete.gif" width="260" alt="Swipe left to delete"><br><sub>Swipe left to delete</sub></td>
+  </tr>
+</table>
 
 ## How it works, in 30 seconds
 

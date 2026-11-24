@@ -12,25 +12,29 @@ Documentazione in inglese: [README.md](README.md)
 
 ## Screenshot
 
-<p>
-  <a href="docs/screenshots/01-alarms.png"><img src="docs/screenshots/01-alarms.png" width="200" alt="Elenco sveglie"></a>
-  <a href="docs/screenshots/02-alarm-edit.png"><img src="docs/screenshots/02-alarm-edit.png" width="200" alt="Modifica sveglia"></a>
-  <a href="docs/screenshots/03-swipe-delete.png"><img src="docs/screenshots/03-swipe-delete.png" width="200" alt="Trascina a sinistra per eliminare"></a>
-  <a href="docs/screenshots/04-tags.png"><img src="docs/screenshots/04-tags.png" width="200" alt="Tag NFC abbinati"></a>
-</p>
-<p>
-  <a href="docs/screenshots/06-ringing.png"><img src="docs/screenshots/06-ringing.png" width="200" alt="Sveglia che suona con effetto glitch"></a>
-  <a href="docs/screenshots/07-math-unlock.png"><img src="docs/screenshots/07-math-unlock.png" width="200" alt="Sblocco matematico"></a>
-  <a href="docs/screenshots/08-wake-check.png"><img src="docs/screenshots/08-wake-check.png" width="200" alt="Controllo sei sveglio?"></a>
-  <a href="docs/screenshots/05-config.png"><img src="docs/screenshots/05-config.png" width="200" alt="Pagina CONFIG (immagine lunga)"></a>
-</p>
+<sub>Tocca un'immagine per ingrandirla.</sub>
 
-Effetto glitch mentre suona ed eliminazione con lo swipe:
+<table align="center">
+  <tr>
+    <td align="center" width="25%"><a href="docs/screenshots/01-alarms.png"><img src="docs/screenshots/01-alarms.png" width="180" alt="Sveglie"></a><br><sub>Sveglie</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/02-alarm-edit.png"><img src="docs/screenshots/02-alarm-edit.png" width="180" alt="Modifica sveglia"></a><br><sub>Modifica sveglia</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/04-tags.png"><img src="docs/screenshots/04-tags.png" width="180" alt="Tag NFC abbinati"></a><br><sub>Tag NFC abbinati</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/05-config.png"><img src="docs/screenshots/05-config-preview.png" width="180" alt="Impostazioni"></a><br><sub>Impostazioni</sub></td>
+  </tr>
+  <tr>
+    <td align="center" width="25%"><a href="docs/screenshots/06-ringing.png"><img src="docs/screenshots/06-ringing.png" width="180" alt="Sveglia che suona"></a><br><sub>Sveglia che suona</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/07-math-unlock.png"><img src="docs/screenshots/07-math-unlock.png" width="180" alt="Sblocco matematico"></a><br><sub>Sblocco matematico</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/08-wake-check.png"><img src="docs/screenshots/08-wake-check.png" width="180" alt="Sei sveglio?"></a><br><sub>Sei sveglio?</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/03-swipe-delete.png"><img src="docs/screenshots/03-swipe-delete.png" width="180" alt="Swipe per eliminare"></a><br><sub>Swipe per eliminare</sub></td>
+  </tr>
+</table>
 
-<p>
-  <img src="docs/screenshots/ringing-glitch.gif" width="240" alt="Animazione glitch della sveglia">
-  <img src="docs/screenshots/swipe-delete.gif" width="240" alt="Animazione eliminazione sveglia">
-</p>
+<table align="center">
+  <tr>
+    <td align="center" width="50%"><img src="docs/screenshots/ringing-glitch.gif" width="260" alt="Effetto glitch mentre suona"><br><sub>Effetto glitch mentre suona</sub></td>
+    <td align="center" width="50%"><img src="docs/screenshots/swipe-delete.gif" width="260" alt="Trascina a sinistra per eliminare"><br><sub>Trascina a sinistra per eliminare</sub></td>
+  </tr>
+</table>
 
 ## Come funziona, in 30 secondi
 
