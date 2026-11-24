@@ -19,7 +19,7 @@ Documentazione in inglese: [README.md](README.md)
     <td align="center" width="25%"><a href="docs/screenshots/01-alarms.png"><img src="docs/screenshots/01-alarms.png" width="180" alt="Sveglie"></a><br><sub>Sveglie</sub></td>
     <td align="center" width="25%"><a href="docs/screenshots/02-alarm-edit.png"><img src="docs/screenshots/02-alarm-edit.png" width="180" alt="Modifica sveglia"></a><br><sub>Modifica sveglia</sub></td>
     <td align="center" width="25%"><a href="docs/screenshots/04-tags.png"><img src="docs/screenshots/04-tags.png" width="180" alt="Tag NFC abbinati"></a><br><sub>Tag NFC abbinati</sub></td>
-    <td align="center" width="25%"><a href="docs/screenshots/05-config.png"><img src="docs/screenshots/05-config-preview.png" width="180" alt="Impostazioni"></a><br><sub>Impostazioni</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/05-config.png"><img src="docs/screenshots/05-config-preview.png" width="180" alt="Impostazioni"></a><br><sub>Impostazioni<br>(tocca per la pagina intera)</sub></td>
   </tr>
   <tr>
     <td align="center" width="25%"><a href="docs/screenshots/06-ringing.png"><img src="docs/screenshots/06-ringing.png" width="180" alt="Sveglia che suona"></a><br><sub>Sveglia che suona</sub></td>
@@ -140,6 +140,27 @@ Mentre una sveglia suona, Guardian ti riporta alla sveglia se apri **Impostazion
 ### Cosa nessuna app può impedire
 
 L'arresto forzato via `adb`, l'avvio in modalità provvisoria, lo spegnimento del telefono o il distacco della batteria. L'arresto forzato da Impostazioni cancella anche tutte le sveglie programmate dall'app: per questo Guardian blocca Impostazioni mentre una sveglia suona.
+
+### Spegnimento di emergenza
+
+Solo per vere emergenze: un tag NFC rotto o perso, un telefono con il lettore NFC guasto, una sveglia che suona nel mezzo di una riunione.
+
+<details>
+<summary>⚠️ <b>Pigri: NON aprite qui.</b> Se la conoscete la userete ogni mattina, e NightLatch diventa una sveglia qualsiasi.</summary>
+
+<br>
+
+Mentre la sveglia suona, tieni **due dita appoggiate sullo schermo** per tutta la sequenza e premi:
+
+1. Volume **giù**
+2. Volume **giù**
+3. Volume **su**
+4. Volume **su**
+5. Volume **giù** tenuto premuto per **5 secondi**
+
+Pressioni brevi (meno di 1 secondo l'una), al massimo 3 secondi tra un passo e il successivo. Se alzi le dita, sbagli tasto o rilasci l'ultimo prima del tempo, ricomincia da capo.
+
+</details>
 
 ## Permessi e prima configurazione
 

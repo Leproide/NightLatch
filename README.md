@@ -19,7 +19,7 @@ Italian documentation: [README-ITALIAN.md](README-ITALIAN.md)
     <td align="center" width="25%"><a href="docs/screenshots/01-alarms.png"><img src="docs/screenshots/01-alarms.png" width="180" alt="Alarms"></a><br><sub>Alarms</sub></td>
     <td align="center" width="25%"><a href="docs/screenshots/02-alarm-edit.png"><img src="docs/screenshots/02-alarm-edit.png" width="180" alt="Alarm editor"></a><br><sub>Alarm editor</sub></td>
     <td align="center" width="25%"><a href="docs/screenshots/04-tags.png"><img src="docs/screenshots/04-tags.png" width="180" alt="Paired NFC tags"></a><br><sub>Paired NFC tags</sub></td>
-    <td align="center" width="25%"><a href="docs/screenshots/05-config.png"><img src="docs/screenshots/05-config-preview.png" width="180" alt="Settings"></a><br><sub>Settings</sub></td>
+    <td align="center" width="25%"><a href="docs/screenshots/05-config.png"><img src="docs/screenshots/05-config-preview.png" width="180" alt="Settings"></a><br><sub>Settings<br>(tap to see the full page)</sub></td>
   </tr>
   <tr>
     <td align="center" width="25%"><a href="docs/screenshots/06-ringing.png"><img src="docs/screenshots/06-ringing.png" width="180" alt="Ringing"></a><br><sub>Ringing</sub></td>
@@ -140,6 +140,27 @@ While an alarm is ringing, Guardian sends you back to the alarm if you open **Se
 ### What no app can prevent
 
 Force-stop through `adb`, booting into safe mode, turning the phone off or removing the battery. Force-stop from Settings also cancels every alarm the app scheduled, which is why Guardian blocks Settings while an alarm rings.
+
+### Emergency stop
+
+For real emergencies only: an NFC tag that broke or got lost, a phone with a broken NFC reader, an alarm ringing in the middle of a meeting.
+
+<details>
+<summary>⚠️ <b>Lazy people: DO NOT open this.</b> If you know it, you will use it every morning and NightLatch becomes a normal alarm clock.</summary>
+
+<br>
+
+While the alarm is ringing, keep **two fingers on the screen** for the whole sequence and press:
+
+1. Volume **down**
+2. Volume **down**
+3. Volume **up**
+4. Volume **up**
+5. Volume **down**, held for **5 seconds**
+
+Short presses (under 1 second each), no more than 3 seconds between one step and the next. If you lift the fingers, press the wrong key or release the last one early, start over.
+
+</details>
 
 ## Permissions and first setup
 
